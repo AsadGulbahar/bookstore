@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    < tle>Book Store</ tle> 
+    <link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+ 
+<header> 
+    <h1>Online Book Store</h1> 
+</header> 
+ 
+<div class="container"> 
+ 
+    <div class="search"> 
+        <input 
+            type="text" 
+            id="search" 
+            placeholder="Search books..." 
+        > 
+ 
+        <bu on onclick="searchBooks()"> 
+            Search 
+        </bu on> 
+    </div> 
+ 
+    <div class="add-book"> 
+ 
+        <h2>Add Book</h2> 
+ 
+        <input id=" tle" placeholder="Title"> 
+ 
+        <input id="author" placeholder="Author"> 
+ 
+        <input id="price" placeholder="Price"> 
+ 
+        <input id="category" placeholder="Category"> 
+ 
+        <input id="image" placeholder="Image URL"> 
+ 
+        <bu on onclick="addBook()"> 
+            Add Book 
+        </bu on> 
+ 
+    </div> 
+ 
+    <div id="bookList"></div> 
+ 
+</div> 
+ 
+<script src="script.js"></script> 
+ 
+</body> 
+</html>
