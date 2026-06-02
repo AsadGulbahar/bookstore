@@ -21,7 +21,7 @@ function loadBooks() {
  
                 <img src="${book.image}"> 
  
-                <h3>${book. tle}</h3> 
+                <h3>${book.title}</h3> 
  
                 <p> 
                     Author: 
@@ -56,8 +56,8 @@ function addBook() {
  
     const book = { 
  
-        tle: 
-            document.getElementById(" tle").value, 
+        title: 
+            document.getElementById("title").value, 
  
         author: 
             document.getElementById("author").value, 
@@ -131,7 +131,7 @@ function searchBooks() {
  
                 <img src="${book.image}"> 
  
-                <h3>${book. tle}</h3> 
+                <h3>${book.title}</h3> 
  
                 <p>${book.author}</p> 
  
