@@ -29,23 +29,23 @@ app.get("/books", (req, res) => {
 /* 
 SEARCH BOOKS 
 */ 
-app.get("/books/search/:keyword", (req, res) => { 
- 
-    const keyword = `%${req.params.keyword}%`; 
- 
-    db.query( 
-        "SELECT * FROM books WHERE tle LIKE ? OR author LIKE ?", 
-        [keyword, keyword], 
-        (err, results) => { 
- 
-            if(err){ 
-                return res.status(500).json(err); 
-            } 
- 
-            res.json(results); 
-        } 
-    ); 
-}); 
+app.get("/books/search/:keyword", (req, res) => {
+
+    const keyword = `%${req.params.keyword}%`;
+
+    db.query(
+        "SELECT * FROM books WHERE title LIKE ? OR author LIKE ?",
+        [keyword, keyword],
+        (err, results) => {
+
+            if(err){
+                return res.status(500).json(err);
+            }
+
+            res.json(results);
+        }
+    );
+});
  
 /* 
 ADD BOOK 
