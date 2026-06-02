@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express"); 
 const cors = require("cors"); 
 const db = require("./db"); 
@@ -99,6 +100,6 @@ app.delete("/books/:id", (req, res) => {
     ); 
 }); 
  
-app.listen(3000, () => { 
-    console.log("Server running on port 3000"); 
+app.listen(process.env.PORT, () => { 
+    console.log(`Server running on port ${process.env.PORT}`); 
 });
