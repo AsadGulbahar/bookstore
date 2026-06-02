@@ -22,24 +22,24 @@ VALUES
 'John Smith', 
 29.99, 
 'Programming', 
-'h ps://picsum.photos/200/300' 
+'https://picsum.photos/200/300' 
 ), 
 ( 
 'JavaScript Mastery', 
 'David Brown', 
 34.99, 
 'Programming', 
-'h ps://picsum.photos/200/301' 
+'https://picsum.photos/200/301' 
 ), 
 ( 
 'CSS Design', 
 'Sarah Wilson', 
 19.99, 
 'Web Design', 
-'h ps://picsum.photos/200/302' 
+'https://picsum.photos/200/302' 
 );
-
 */
+
 /*
 SELECT * FROM books;
 */

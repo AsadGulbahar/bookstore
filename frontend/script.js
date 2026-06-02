@@ -1,5 +1,5 @@
 const API_URL = 
-    "h p://localhost:3000/books"; 
+    "http://localhost:3000/books"; 
  
 loadBooks(); 
  
@@ -37,14 +37,15 @@ function loadBooks() {
                     $${book.price} 
                 </p> 
  
-                <bu on 
-                class="delete-btn" 
-                onclick="deleteBook(${book.id})"> 
+                <button 
+                    class="delete-btn" 
+                    onclick="deleteBook(${book.id})"> 
  
                     Delete 
  
-                </bu on> 
+                </button> 
  
+
             </div> 
             `; 
         }); 
@@ -78,7 +79,7 @@ function addBook() {
  
         headers: { 
             "Content-Type": 
-            "applica on/json" 
+            "application/json" 
         }, 
  
         body: JSON.stringify(book) 
@@ -114,7 +115,7 @@ function searchBooks() {
         document.getElementById("search").value; 
  
     fetch( 
-        `h p://localhost:3000/books/search/${keyword}` 
+        `http://localhost:3000/books/search/${keyword}` 
     ) 
     .then(response => response.json()) 
     .then(data => { 
