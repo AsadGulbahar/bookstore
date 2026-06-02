@@ -62,9 +62,9 @@ app.post("/books", (req, res) => {
  
     db.query( 
         `INSERT INTO books 
-        ( tle, author, price, category, image) 
+        ( title, author, price, category, image) 
         VALUES (?, ?, ?, ?, ?)`, 
-        [ tle, author, price, category, image], 
+        [ title, author, price, category, image], 
         (err, result) => { 
  
             if(err){ 
