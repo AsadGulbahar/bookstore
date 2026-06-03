@@ -1,5 +1,8 @@
-const API_URL = 
-    "http://localhost:3000/books"; 
+const BASE_URL =
+    "http://localhost:3000";
+
+const API_URL =
+    `${BASE_URL}/books`;
  
 loadBooks(); 
  
@@ -109,38 +112,62 @@ function deleteBook(id) {
     }); 
 } 
  
-function searchBooks() { 
- 
-    const keyword = 
-        document.getElementById("search").value; 
- 
-    fetch( 
-        `http://localhost:3000/books/search/${keyword}` 
-    ) 
-    .then(response => response.json()) 
-    .then(data => { 
- 
-        const bookList = 
-            document.getElementById("bookList"); 
- 
-        bookList.innerHTML = ""; 
- 
-        data.forEach(book => { 
- 
-            bookList.innerHTML += ` 
-            <div class="book-card"> 
- 
-                <img src="${book.image}"> 
- 
-                <h3>${book.title}</h3> 
- 
-                <p>${book.author}</p> 
- 
-                <p>$${book.price}</p> 
- 
-            </div> 
-            `; 
-        }); 
- 
-    }); 
-} 
+function searchBooks() {
+
+    const keyword =
+        document.getElementById("search")
+        .value
+        .trim();
+
+    /*
+    IF SEARCH IS EMPTY
+    LOAD ALL BOOKS
+    */
+    if(keyword === ""){
+
+        loadBooks();
+        return;
+    }
+
+    fetch(
+        `${API_URL}/search/${keyword}`
+    )
+    .then(response => response.json())
+    .then(data => {
+
+        const bookList =
+            document.getElementById("bookList");
+
+        bookList.innerHTML = "";
+
+        /*
+        IF NO RESULTS FOUND
+        */
+        if(data.length === 0){
+
+            bookList.innerHTML =
+                "<p>No books found.</p>";
+
+            return;
+        }
+
+        data.forEach(book => {
+
+            bookList.innerHTML += `
+            <div class="book-card">
+
+                <img src="${book.image}">
+
+                <h3>${book.title}</h3>
+
+                <p>${book.author}</p>
+
+                <p>$${book.price}</p>
+
+            </div>
+            `;
+        });
+
+    });
+
+}
