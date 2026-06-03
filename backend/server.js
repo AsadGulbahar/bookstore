@@ -38,7 +38,12 @@ app.get("/books", (req, res) => {
                 return res.status(500).json(err);
             }
 
-            res.json(results);
+            const books = results.map(book => ({
+                ...book,
+                image: `${process.env.BASE_URL}/images/${book.image}`
+            }));
+
+            res.json(books);
         }
     );
 
@@ -73,7 +78,12 @@ app.get("/books/search/:keyword", (req, res) => {
                 return res.status(500).json(err);
             }
 
-            res.json(results);
+            const books = results.map(book => ({
+                ...book,
+                image: `${process.env.BASE_URL}/images/${book.image}`
+            }));
+
+            res.json(books);
         }
     );
 
@@ -130,6 +140,25 @@ app.delete("/books/:id", (req, res) => {
             res.json({
                 message: "Book Deleted"
             });
+        }
+    );
+
+});
+
+/*
+GET ALL AUTHORS
+*/
+app.get("/authors", (req, res) => {
+
+    db.query(
+        "SELECT * FROM authors",
+        (err, results) => {
+
+            if(err){
+                return res.status(500).json(err);
+            }
+
+            res.json(results);
         }
     );
 
